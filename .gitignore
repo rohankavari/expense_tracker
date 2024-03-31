@@ -1,0 +1,5 @@
+env
+*.pyc
+.vscode
+*.pth
+dataset/dataset.csv
