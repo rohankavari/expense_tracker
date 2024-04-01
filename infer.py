@@ -4,7 +4,7 @@ from transformers import BertTokenizer, BertForSequenceClassification
 def get_sms_type(input_text,input_sender):
     # Load the trained model
     model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=4)
-    model.load_state_dict(torch.load('models\sms_classifier_model.pth',map_location=torch.device('cpu') ))
+    model.load_state_dict(torch.load('models/sms_classifier_model.pth',map_location=torch.device('cpu') ))
     model.eval()
 
     # Initialize BERT tokenizer
@@ -37,8 +37,3 @@ def get_sms_type(input_text,input_sender):
     predicted_class = torch.argmax(logits, dim=1).item()
 
     return predicted_class
-
-
-input_text = "ICICI Bank Acct XX977 debited for Rs 719.00 on 28-Oct-22; Bharti Airtel L credited. UPI:230120296419. Call 18002662 for dispute. SMS BLOCK 977 to 9215676766"
-input_sender = "VK-ICICIB"
-print(get_sms_type(input_text,input_sender))

@@ -3,3 +3,5 @@ env
 .vscode
 *.pth
 dataset/dataset.csv
+*.csv
+*.xml
